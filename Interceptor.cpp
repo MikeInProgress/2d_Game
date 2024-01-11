@@ -36,7 +36,7 @@ Interceptor::Interceptor() : sf::Sprite() {
 
 }
 
-Interceptor::~Interceptor(){}
+Interceptor::~Interceptor() { }
 
 
 void Interceptor::paint(Game & game)
@@ -52,7 +52,7 @@ void Interceptor::catchEvents(sf::Event & E)
 	{
 		this->Speed_Y = -(this->boostSpeed);
 		//std::cout << "Up : " << Speed_Y << std::endl;
-		
+		std::cout << "1_Predkosc : " << Speed_Y << std::endl;
 		move = true;
 		
 	}
@@ -60,6 +60,7 @@ void Interceptor::catchEvents(sf::Event & E)
 	{
 		this->Speed_Y = this->boostSpeed;
 		//std::cout << " Down : " << Speed_Y << std::endl;
+		std::cout << "2_Predkosc : " << Speed_Y << std::endl;
 		move = true;
 		
 	}
@@ -72,30 +73,40 @@ void Interceptor::update(Game & game)
 	if (this->getGlobalBounds().top + this->getGlobalBounds().height >= 630)
 	{
 		this->Speed_Y *= ( - 0.75 );
-		std::cout << " 1 " << std::endl;
-		
 	}
 
 	if (this->getGlobalBounds().top <= 0)
 	{
 		this->Speed_Y *=  -( 0.75 );
-		std::cout << " 2 " << std::endl;
 	}
+
+	
+	for (int i = 0; i < 100; i++)
+	{
+		this->jet[i].position =
+			sf::Vector2f( (this->getPosition().x - 70) - (rand() % 21 - 10) - i,  (this->getPosition().y - 3) + (rand()%(i+5) - i/2));
+
+		this->jet[i].color =
+			sf::Color(155 + rand() % 100, 155 + rand() % 100, 255, 255);
+		
+	}
+
+		game.draw(this->jet, 100, sf::PrimitiveType::Points);
+
+	
 
 	if (this->Speed_Y > 0)
 	{
-		this->Speed_Y = std::max(0.f,this->Speed_Y - (this->boostSpeed/this->SpeedCooldown));
-		
+		this->Speed_Y = std::max(0.f,this->Speed_Y - (this->boostSpeed/this->SpeedCooldown));	
 	}
 	else if (Speed_Y < 0)
 	{
 		this->Speed_Y = std::min(0.f, this->Speed_Y + (this->boostSpeed / this->SpeedCooldown));
-	
 	}
 	
 	this->setPosition(this->getPosition().x, this->getPosition().y + this->Speed_Y);
 
-	//std::cout << this->getPosition().y + this->Speed_Y << std::endl;
+	
 }
 
 void Interceptor::shoot()
