@@ -51,14 +51,15 @@ void Interceptor::catchEvents(sf::Event & E)
 	if (E.type == sf::Event::KeyPressed && (E.key.code == sf::Keyboard::Up || E.key.code == sf::Keyboard::W))
 	{
 		this->Speed_Y = -(this->boostSpeed);
-		std::cout << "Up : " << Speed_Y << std::endl;
+		//std::cout << "Up : " << Speed_Y << std::endl;
+		
 		move = true;
 		
 	}
 	if (E.type == sf::Event::KeyPressed && (E.key.code == sf::Keyboard::Down || E.key.code == sf::Keyboard::S))
 	{
 		this->Speed_Y = this->boostSpeed;
-		std::cout << " Down : " << Speed_Y << std::endl;
+		//std::cout << " Down : " << Speed_Y << std::endl;
 		move = true;
 		
 	}
@@ -70,25 +71,31 @@ void Interceptor::update(Game & game)
 
 	if (this->getGlobalBounds().top + this->getGlobalBounds().height >= 630)
 	{
-		this->Speed_Y *= -1.5;
+		this->Speed_Y *= ( - 0.75 );
+		std::cout << " 1 " << std::endl;
+		
 	}
 
 	if (this->getGlobalBounds().top <= 0)
 	{
-		this->Speed_Y *= 1.5;
+		this->Speed_Y *=  -( 0.75 );
+		std::cout << " 2 " << std::endl;
 	}
 
 	if (this->Speed_Y > 0)
 	{
 		this->Speed_Y = std::max(0.f,this->Speed_Y - (this->boostSpeed/this->SpeedCooldown));
+		
 	}
 	else if (Speed_Y < 0)
 	{
-		this->Speed_Y = std::min(0.f, this->Speed_Y - (this->boostSpeed / this->SpeedCooldown));
+		this->Speed_Y = std::min(0.f, this->Speed_Y + (this->boostSpeed / this->SpeedCooldown));
+	
 	}
-
+	
 	this->setPosition(this->getPosition().x, this->getPosition().y + this->Speed_Y);
-	std::cout << this->getPosition().y + this->Speed_Y << std::endl;
+
+	//std::cout << this->getPosition().y + this->Speed_Y << std::endl;
 }
 
 void Interceptor::shoot()
