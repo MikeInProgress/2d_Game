@@ -1,5 +1,5 @@
 #include "Interceptor.h"
-#include <iostream>
+
 
 Interceptor::Interceptor() : sf::Sprite() {
 

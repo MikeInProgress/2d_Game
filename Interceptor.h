@@ -1,11 +1,16 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <vector>
-#include <sstream>
+
+#ifndef Interceptor_H
+#define Interceptor_H
+
+#include "Classes.h"
+class Bullet;
+#include "Bullet.h"
+class Game;
 #include "Game.h"
 
 class Interceptor : public sf::Sprite {
-public :
+public:
 
 	float Speed_Y = 0;
 	float boostSpeed = 4;
@@ -41,11 +46,11 @@ public :
 
 	Interceptor();
 
-	void paint(Game & game);
+	void paint(Game& game);
 
-	void catchEvents(sf::Event & E);
+	void catchEvents(sf::Event& E);
 
-	void update(Game & game);
+	void update(Game& game);
 
 	void shoot();
 
@@ -56,4 +61,11 @@ public :
 
 
 };
+
+#endif // !Interceptor_H
+
+
+
+
+
 

@@ -1,9 +1,8 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <random>
+#ifndef Rock_H
+#define Rock_H
 
-
-
+#include "Classes.h"
 
 class Rock : public sf::ConvexShape {
 
@@ -31,3 +30,11 @@ public:
 	virtual ~Rock();
 
 };
+#endif // !Rock_H
+
+
+
+
+
+
+

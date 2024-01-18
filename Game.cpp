@@ -1,15 +1,6 @@
 ﻿ 
-#include <utility>
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/Network.hpp>
-#include <SFML/System/Clock.hpp>
-#include <iostream>
-#include <random>
-#include <vector>
+
 #include "Game.h"
-#include "Rock.h"
-#include "Interceptor.h"
 
 std::vector<Rock> Game::Rocks;
 sf::Vertex Game::stars[2000];
