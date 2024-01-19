@@ -29,7 +29,7 @@ public:
 	float HP_Picture = 50;
 
 	//pociski
-
+	std::vector <Bullet> bullets;
 	unsigned int maxBullers = 12;
 
 	sf::Text Point_Text;

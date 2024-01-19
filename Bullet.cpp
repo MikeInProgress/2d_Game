@@ -45,12 +45,19 @@ void Bullet::update(Game& game) {
 }
 
 bool Bullet::collTest() {
-	/*for (auto i = Game::Rocks.begin(); i != Game::Rocks.end(); i++)
+	for (auto i = Game::Rocks.begin(); i != Game::Rocks.end(); i++)
 	{
-		return true;
+		Rock* r = &(*i);
+		
+		if (this->getGlobalBounds().intersects(r->getGlobalBounds())) // add functionispointinsidepolygon
+		{
+			r->kill = true;
+			this->kill = true;
+
+			return 0;
+		}
+		return 0;
 	}
-	return false;*/
-	return false;
 
 }
 

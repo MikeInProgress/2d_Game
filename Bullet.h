@@ -11,6 +11,8 @@ class Game;
 
 class Bullet : public sf::CircleShape {
 
+public:
+
 	static sf::Texture Bullet_textuire;
 	static unsigned int size_of_bulllet;
 

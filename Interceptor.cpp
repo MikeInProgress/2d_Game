@@ -28,7 +28,7 @@ Interceptor::Interceptor() : sf::Sprite() {
 	this->setTexture(this->Texture_of_Skin);
 
 	this->setOrigin(static_cast<float>(this->skin.getSize().x/2), static_cast<float>(this->skin.getSize().y/2));
-	this->setPosition(this->skin.getSize().x * 2, 310);
+	this->setPosition(static_cast<float>(this->skin.getSize().x * 2), static_cast < float>(310));
 
 	this->setTextureRect(sf::IntRect(0,0,this->skin.getSize().x, this->skin.getSize().y));
 

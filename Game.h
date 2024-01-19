@@ -35,8 +35,10 @@ public:
 
 	void run();
 	void end_game(Interceptor*);
+
 	static void startconsole();
 	static void Set_Window(HWND pointer_API);
+
 	static bool is_Point_Inside_Polygone(std::vector <sf::Vector2f>&, const sf::Vector2f&);
 	static bool is_Point_Inside_Polygone(const sf::Transform&, std::vector <sf::Vector2f>&, const sf::Vector2f&);
 
